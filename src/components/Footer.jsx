@@ -3,11 +3,11 @@ import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 const links = [
     { label: "Home", to: "/" },
-    { label: "Check Challan", to: "/" },
+    { label: "Check Challan", to: "/#check-challan" },
     { label: "How It Works", to: "/how-it-works" },
     { label: "Traffic Rules", to: "/traffic-rules" },
-    { label: "About", to: "#" },
-    { label: "Contact", to: "#" },
+    { label: "About", to: "/about" },
+    { label: "Contact", to: "/contact" },
 ];
 
 function Footer() {
@@ -24,13 +24,11 @@ function Footer() {
                     </Link>
 
                     <nav className="footer-links">
-                        {links.map((link) =>
-                            link.to === "#" ? (
-                                <a key={link.label} href="#">{link.label}</a>
-                            ) : (
-                                <Link key={link.label} to={link.to}>{link.label}</Link>
-                            )
-                        )}
+                        {links.map((link) => (
+                            <Link key={link.label} to={link.to}>
+                                {link.label}
+                            </Link>
+                        ))}
                     </nav>
 
                     <div className="socials">
@@ -46,7 +44,7 @@ function Footer() {
                     <div className="footer-legal">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms &amp; Conditions</a>
-                        <a href="#">Help &amp; Support</a>
+                        <Link to="/contact">Help &amp; Support</Link>
                     </div>
                 </div>
             </div>

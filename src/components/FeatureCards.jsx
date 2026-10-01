@@ -1,8 +1,30 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { featurePages } from "../data/featurePages.js";
+import { FileText, CreditCard, BarChart3, ArrowRight } from "lucide-react";
 
-function FeatureCards() {
+const cards = [
+    {
+        mode: "challan",
+        icon: FileText,
+        color: "blue",
+        title: "View Violation Details",
+        text: "See violation type, date, location and evidence (image/video)",
+    },
+    {
+        mode: "pay",
+        icon: CreditCard,
+        color: "green",
+        title: "Pay Challan Online",
+        text: "Quick, secure and hassle-free payments",
+    },
+    {
+        mode: "history",
+        icon: BarChart3,
+        color: "orange",
+        title: "Track History",
+        text: "View your past violations and payment status",
+    },
+];
+
+function FeatureCards({ onSelect }) {
     return (
         <section className="section features-section">
             <div className="container">
@@ -11,22 +33,27 @@ function FeatureCards() {
                     A simple and transparent way to manage your traffic challans
                 </p>
 
-                <div className="feature-grid">
-                    {featurePages.map((page) => {
-                        const Icon = page.icon;
+                <div className="feature-grid three">
+                    {cards.map((card) => {
+                        const Icon = card.icon;
                         return (
-                            <Link to={`/${page.slug}`} className="feature-card" key={page.slug}>
-                <span className={`icon-circle ${page.color}`}>
+                            <button
+                                type="button"
+                                className="feature-card clickable"
+                                key={card.mode}
+                                onClick={() => onSelect(card.mode)}
+                            >
+                <span className={`icon-circle ${card.color}`}>
                   <Icon size={22} />
                 </span>
                                 <div>
-                                    <h3>{page.cardTitle}</h3>
-                                    <p>{page.cardText}</p>
+                                    <h3>{card.title}</h3>
+                                    <p>{card.text}</p>
                                     <span className="card-link">
-                    Learn more <ArrowRight size={14} />
+                    Get started <ArrowRight size={14} />
                   </span>
                                 </div>
-                            </Link>
+                            </button>
                         );
                     })}
                 </div>

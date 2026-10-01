@@ -1,34 +1,9 @@
-import { Camera, FileText, Bell, CreditCard, ArrowRight } from "lucide-react";
+import { Camera, FileText, CreditCard, ArrowRight } from "lucide-react";
 
 const steps = [
-    {
-        icon: Camera,
-        color: "purple",
-        number: 1,
-        title: "Violation Detected",
-        text: "Traffic cameras capture violations using AI",
-    },
-    {
-        icon: FileText,
-        color: "blue",
-        number: 2,
-        title: "Challan Generated",
-        text: "Your challan is created with details and evidence",
-    },
-    {
-        icon: Bell,
-        color: "green",
-        number: 3,
-        title: "Get Notified",
-        text: "You receive a notification about the challan",
-    },
-    {
-        icon: CreditCard,
-        color: "orange",
-        number: 4,
-        title: "View & Pay",
-        text: "Check details and pay online easily",
-    },
+    { icon: Camera, color: "purple", number: 1, title: "Violation Detected", text: "Traffic cameras capture violations using AI" },
+    { icon: FileText, color: "blue", number: 2, title: "Challan Generated", text: "Your challan is created with details and evidence" },
+    { icon: CreditCard, color: "orange", number: 3, title: "View & Pay", text: "Check details and pay online easily" },
 ];
 
 function HowItWorks() {

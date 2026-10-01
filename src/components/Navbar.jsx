@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 
 const links = [
     { label: "Home", to: "/" },
-    { label: "Check Challan", to: "/" },
+    { label: "Check Challan", to: "/#check-challan", plain: true },
     { label: "How It Works", to: "/how-it-works" },
     { label: "Traffic Rules", to: "/traffic-rules" },
-    { label: "About", to: "#" },
-    { label: "Contact", to: "#" },
+    { label: "About", to: "/about" },
+    { label: "Contact", to: "/contact" },
 ];
 
 function Navbar() {
@@ -27,11 +27,7 @@ function Navbar() {
 
                 <nav className={`nav-links ${open ? "nav-open" : ""}`}>
                     {links.map((link) =>
-                        link.to === "#" ? (
-                            <a key={link.label} href="#" className="nav-link">
-                                {link.label}
-                            </a>
-                        ) : link.label === "Check Challan" ? (
+                        link.plain ? (
                             <Link
                                 key={link.label}
                                 to={link.to}
